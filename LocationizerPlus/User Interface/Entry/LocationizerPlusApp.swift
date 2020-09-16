@@ -11,7 +11,8 @@ import SwiftUI
 struct LocationizerPlusApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainTabView()
+                .modifier(AppServices())
         }
     }
 }

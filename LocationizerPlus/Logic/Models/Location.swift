@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  LocationObject.swift
 //  Location
 //
 //  Created by Fineas Gavre on 15.09.2020.
@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
+
+// MARK: - Location struct
 
 struct Location: Decodable {
+    var id: String
     let latitude: Double
     let longitude: Double
     let label: String
@@ -23,6 +27,7 @@ struct Location: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         label = try container.decode(String.self, forKey: .label)
+        id = label
         address = try container.decode(String.self, forKey: .address)
         image = try container.decodeIfPresent(String.self, forKey: .image)
         
@@ -39,5 +44,37 @@ struct Location: Decodable {
         }
     }
 }
+
+// MARK: - RealmLocation convenience init extension
+
+extension RealmLocation {
+    convenience init(_ location: Location) {
+        self.init()
+        self.id = location.label
+        self.latitude = location.latitude
+        self.longitude = location.longitude
+        self.label = location.label
+        self.address = location.address
+        self.image = location.image
+    }
+}
+
+// MARK: - Location RealmConvertible extension
+
+extension Location: RealmConvertible {
+    func realmMap() -> RealmLocation {
+        RealmLocation(self)
+    }
+    
+    init(_ realmLocation: RealmLocation) {
+        self.id = realmLocation.id
+        self.latitude = realmLocation.latitude
+        self.longitude = realmLocation.longitude
+        self.label = realmLocation.label
+        self.address = realmLocation.address
+        self.image = realmLocation.image
+    }
+}
+
 
 

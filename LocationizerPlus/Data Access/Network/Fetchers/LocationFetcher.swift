@@ -15,14 +15,10 @@ fileprivate struct LocationResponse: Decodable {
 
 class LocationFetcher {
     
-    // MARK: - Private Static Properties
-    
-    private static let LOCATION_URL = "http://demo1042273.mockable.io/mylocations"
-    
     // MARK: - Public Methods
     
     func fetchLocationsFromServer() -> AnyPublisher<[Location], Never>  {
-        guard let url = URL(string: LocationFetcher.LOCATION_URL) else { return Just([]).eraseToAnyPublisher()  }
+        guard let url = URL(string: API.backendURL + API.Path.getLocations) else { return Just([]).eraseToAnyPublisher()  }
         
         return URLSession.shared.dataTaskPublisher(for: url)
             .tryMap { (arg0) -> [Location] in
@@ -31,7 +27,7 @@ class LocationFetcher {
                 return dataResponse.locations
             }
             .replaceError(with: [])
-            .receive(on: DispatchQueue.main)
+            .receive(on: RunLoop.main)
             .eraseToAnyPublisher()
     }
     

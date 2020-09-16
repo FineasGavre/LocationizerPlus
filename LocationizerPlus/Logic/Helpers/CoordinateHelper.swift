@@ -11,15 +11,19 @@ import Foundation
 class CoordinateHelper {
     // Returns the distance between two coordinates in kilometers using the haversine formula
     static func distanceBetweenTwoCoordinates(latitude1: Double, longitude1: Double, latitude2: Double, longitude2: Double) -> Double {
-        let theta = longitude1 - longitude2
-        var distance = sin(latitude1.toRadians()) * sin(latitude2.toRadians()) + cos(latitude1.toRadians()) * cos(latitude2.toRadians()) * cos(theta.toRadians())
-        distance = acos(distance)
-        distance = distance.toDegrees()
+        let rlatitude1 = latitude1.toRadians()
+        let rlongitude1 = longitude1.toRadians()
+        let rlatitude2 = latitude2.toRadians()
+        let rlongitude2 = longitude2.toRadians()
         
-        // Transform the distance into kilometers
-        distance = distance * 1.609344
+        let dlatitude = rlatitude2 - rlatitude1
+        let dlongitude = rlongitude2 - rlongitude1
         
-        return distance
+        let a = sin(dlatitude/2) * sin(dlatitude/2) + cos(latitude1) * cos(latitude2) * sin(dlongitude/2) * sin(dlongitude/2)
+        let c = 2 * asin(sqrt(a))
+        let r = 6371.0 // Radius of the Earth in km
+        
+        return c * r
     }
 }
 
