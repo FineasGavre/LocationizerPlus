@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,14 @@
 		B076E6882512406A00C0373C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E6872512406A00C0373C /* ContentView.swift */; };
 		B076E68A2512406B00C0373C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B076E6892512406B00C0373C /* Assets.xcassets */; };
 		B076E68D2512406B00C0373C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B076E68C2512406B00C0373C /* Preview Assets.xcassets */; };
+		B076E69A251240C300C0373C /* CoordinateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E699251240C300C0373C /* CoordinateHelper.swift */; };
+		B076E69F2512417300C0373C /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E69E2512417300C0373C /* AppServices.swift */; };
+		B076E6A32512417C00C0373C /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E6A22512417C00C0373C /* LocationService.swift */; };
+		B076E6A72512418F00C0373C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E6A62512418F00C0373C /* Location.swift */; };
+		B076E6B0251242F100C0373C /* KingfisherSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = B076E6AF251242F100C0373C /* KingfisherSwiftUI */; };
+		B076E6B52512434000C0373C /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E6B42512434000C0373C /* LocationFetcher.swift */; };
+		B076E6BB2512488500C0373C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B076E6BA2512488500C0373C /* Realm */; };
+		B076E6BD2512488500C0373C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B076E6BC2512488500C0373C /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +28,11 @@
 		B076E6892512406B00C0373C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B076E68C2512406B00C0373C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B076E68E2512406B00C0373C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B076E699251240C300C0373C /* CoordinateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateHelper.swift; sourceTree = "<group>"; };
+		B076E69E2512417300C0373C /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
+		B076E6A22512417C00C0373C /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		B076E6A62512418F00C0373C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B076E6B42512434000C0373C /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +40,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B076E6BD2512488500C0373C /* RealmSwift in Frameworks */,
+				B076E6BB2512488500C0373C /* Realm in Frameworks */,
+				B076E6B0251242F100C0373C /* KingfisherSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,7 +68,9 @@
 		B076E6842512406A00C0373C /* LocationizerPlus */ = {
 			isa = PBXGroup;
 			children = (
-				B076E6852512406A00C0373C /* LocationizerPlusApp.swift */,
+				B076E6962512409F00C0373C /* Network Access */,
+				B076E697251240A600C0373C /* Logic */,
+				B076E6A9251241EE00C0373C /* User Interface */,
 				B076E6872512406A00C0373C /* ContentView.swift */,
 				B076E6892512406B00C0373C /* Assets.xcassets */,
 				B076E68E2512406B00C0373C /* Info.plist */,
@@ -67,6 +85,97 @@
 				B076E68C2512406B00C0373C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B076E6962512409F00C0373C /* Network Access */ = {
+			isa = PBXGroup;
+			children = (
+				B076E6B32512433500C0373C /* Fetchers */,
+			);
+			path = "Network Access";
+			sourceTree = "<group>";
+		};
+		B076E697251240A600C0373C /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				B076E69D2512416600C0373C /* Services */,
+				B076E698251240B100C0373C /* Helpers */,
+				B076E6A52512418300C0373C /* Models */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		B076E698251240B100C0373C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B076E699251240C300C0373C /* CoordinateHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B076E69D2512416600C0373C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B076E69E2512417300C0373C /* AppServices.swift */,
+				B076E6A22512417C00C0373C /* LocationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B076E6A52512418300C0373C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B076E6A62512418F00C0373C /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B076E6A9251241EE00C0373C /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B076E6AB2512420200C0373C /* Components */,
+				B076E6AD2512421400C0373C /* LocationList */,
+				B076E6AC2512421000C0373C /* Search */,
+				B076E6AA251241FC00C0373C /* Entry */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		B076E6AA251241FC00C0373C /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				B076E6852512406A00C0373C /* LocationizerPlusApp.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		B076E6AB2512420200C0373C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B076E6AC2512421000C0373C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B076E6AD2512421400C0373C /* LocationList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LocationList;
+			sourceTree = "<group>";
+		};
+		B076E6B32512433500C0373C /* Fetchers */ = {
+			isa = PBXGroup;
+			children = (
+				B076E6B42512434000C0373C /* LocationFetcher.swift */,
+			);
+			path = Fetchers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +194,11 @@
 			dependencies = (
 			);
 			name = LocationizerPlus;
+			packageProductDependencies = (
+				B076E6AF251242F100C0373C /* KingfisherSwiftUI */,
+				B076E6BA2512488500C0373C /* Realm */,
+				B076E6BC2512488500C0373C /* RealmSwift */,
+			);
 			productName = LocationizerPlus;
 			productReference = B076E6822512406A00C0373C /* LocationizerPlus.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +226,10 @@
 				Base,
 			);
 			mainGroup = B076E6792512406A00C0373C;
+			packageReferences = (
+				B076E6AE251242F100C0373C /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				B076E6B92512488500C0373C /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = B076E6832512406A00C0373C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +257,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B076E6882512406A00C0373C /* ContentView.swift in Sources */,
+				B076E69F2512417300C0373C /* AppServices.swift in Sources */,
+				B076E6A32512417C00C0373C /* LocationService.swift in Sources */,
+				B076E6B52512434000C0373C /* LocationFetcher.swift in Sources */,
 				B076E6862512406A00C0373C /* LocationizerPlusApp.swift in Sources */,
+				B076E6A72512418F00C0373C /* Location.swift in Sources */,
+				B076E69A251240C300C0373C /* CoordinateHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +451,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B076E6AE251242F100C0373C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.15.0;
+			};
+		};
+		B076E6B92512488500C0373C /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B076E6AF251242F100C0373C /* KingfisherSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B076E6AE251242F100C0373C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = KingfisherSwiftUI;
+		};
+		B076E6BA2512488500C0373C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B076E6B92512488500C0373C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		B076E6BC2512488500C0373C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B076E6B92512488500C0373C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B076E67A2512406A00C0373C /* Project object */;
 }
