@@ -29,38 +29,44 @@ class RealmHelper {
         realm.object(ofType: ObjectType.self, forPrimaryKey: object.id)
     }
     
-    func create<ObjectType: Object & StringIdentifiable>(_ object: ObjectType) {
+    func create<ObjectType: Object & StringIdentifiable>(_ object: ObjectType) throws {
         guard realm.object(ofType: ObjectType.self, forPrimaryKey: object.id) == nil else { return }
         
-        try? realm.write {
+        try realm.write {
             realm.add(object)
         }
     }
     
-    func update<ObjectType: Object>(_ object: ObjectType) {
-        try? realm.write {
+    func update<ObjectType: Object>(_ object: ObjectType) throws {
+        try realm.write {
             realm.create(ObjectType.self, value: object, update: .modified)
         }
     }
     
-    func updateConvertible<Convertible: RealmConvertible>(_ convertible: Convertible) {
+    func updateConvertible<Convertible: RealmConvertible>(_ convertible: Convertible) throws {
+        try realm.write {
+            realm.create(Convertible.RealmType.self, value: convertible.realmMap(), update: .modified)
+        }
+    }
+    
+    func updateConvertibleIgnoringErrors<Convertible: RealmConvertible>(_ convertible: Convertible) {
         try? realm.write {
             realm.create(Convertible.RealmType.self, value: convertible.realmMap(), update: .modified)
         }
     }
     
-    func delete<ObjectType: Object & StringIdentifiable>(_ object: ObjectType) {
+    func delete<ObjectType: Object & StringIdentifiable>(_ object: ObjectType) throws {
         guard let realmObject = get(object) else { return }
         
-        try? realm.write {
+        try realm.write {
             realm.delete(realmObject)
         }
     }
     
-    func deleteConvertible<Convertible: RealmConvertible>(_ convertible: Convertible) {
+    func deleteConvertible<Convertible: RealmConvertible>(_ convertible: Convertible) throws {
         guard let realmObject = get(convertible.realmMap()) else { return }
         
-        try? realm.write {
+        try realm.write {
             realm.delete(realmObject)
         }
     }
@@ -69,8 +75,8 @@ class RealmHelper {
         realm.objects(objectType)
     }
     
-    func clearAllData() {
-        try? realm.write {
+    func clearAllData() throws {
+        try realm.write {
             realm.deleteAll()
         }
     }

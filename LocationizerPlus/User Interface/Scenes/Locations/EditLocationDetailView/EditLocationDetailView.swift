@@ -102,7 +102,14 @@ struct EditLocationDetailView: View {
         location.latitude = latitude
         location.image = imageURL != "" ? imageURL : nil
         
-        RealmHelper.shared.update(location)
+        do {
+            try RealmHelper.shared.update(location)
+        } catch {
+            isFormError.toggle()
+            errorText = "An error has occured when updating the database."
+            return
+        }
+
         isViewShown = false
     }
 }

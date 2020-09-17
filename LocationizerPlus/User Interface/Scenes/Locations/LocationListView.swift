@@ -86,7 +86,11 @@ fileprivate struct LocationList: View {
         })
         
         offsets.forEach {
-            RealmHelper.shared.deleteConvertible(filteredList[$0])
+            do {
+                try RealmHelper.shared.deleteConvertible(filteredList[$0])
+            } catch {
+                print("An error has occurred when deleting the location: \(error.localizedDescription)")
+            }
         }
     }
 }

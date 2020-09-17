@@ -24,6 +24,6 @@ extension RealmConvertible {
             } else {
                 return self
             }
-        }, set: RealmHelper.shared.updateConvertible)
+        }, set: RealmHelper.shared.updateConvertibleIgnoringErrors)
     }
 }

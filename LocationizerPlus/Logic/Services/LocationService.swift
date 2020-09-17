@@ -36,13 +36,21 @@ class LocationService: NSObject, ObservableObject {
     func fetchRemoteLocationsAndSaveIntoRealm() {
         locationFetcher.fetchLocationsFromServer().sink { (locations) in
             locations.forEach { (location) in
-                RealmHelper.shared.create(location.realmMap())
+                do {
+                    try RealmHelper.shared.create(location.realmMap())
+                } catch {
+                    print("Error occurred when creating a location: \(error.localizedDescription)")
+                }
             }
         }.store(in: &cancellableSet)
     }
     
     func removeAllLocationsFromRealm() {
-        RealmHelper.shared.clearAllData()
+        do {
+            try RealmHelper.shared.clearAllData()
+        } catch {
+            print("An error has occurred when clearing data from the Realm.")
+        }
     }
     
     func getNearestLocationFrom(latitude: Double, longitude: Double) -> Location? {

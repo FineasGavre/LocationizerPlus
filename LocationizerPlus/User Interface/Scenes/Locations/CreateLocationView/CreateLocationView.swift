@@ -84,7 +84,14 @@ struct CreateLocationView: View {
         location.latitude = latitude
         location.image = imageURL != "" ? imageURL : nil
         
-        RealmHelper.shared.create(location)
+        do {
+            try RealmHelper.shared.create(location)
+        } catch {
+            isFormError.toggle()
+            errorText = "An error has occured when creating the location in the database."
+            return
+        }
+        
         isViewShown = false
     }
 }
