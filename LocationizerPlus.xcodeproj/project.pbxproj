@@ -17,7 +17,6 @@
 		B074226B251271A20056B9B7 /* CreateLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B074226A251271A20056B9B7 /* CreateLocationView.swift */; };
 		B074227225127F8C0056B9B7 /* EditLocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B074227125127F8C0056B9B7 /* EditLocationDetailView.swift */; };
 		B076E6862512406A00C0373C /* LocationizerPlusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E6852512406A00C0373C /* LocationizerPlusApp.swift */; };
-		B076E6882512406A00C0373C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E6872512406A00C0373C /* ContentView.swift */; };
 		B076E68A2512406B00C0373C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B076E6892512406B00C0373C /* Assets.xcassets */; };
 		B076E68D2512406B00C0373C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B076E68C2512406B00C0373C /* Preview Assets.xcassets */; };
 		B076E69A251240C300C0373C /* CoordinateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B076E699251240C300C0373C /* CoordinateHelper.swift */; };
@@ -49,7 +48,6 @@
 		B074227125127F8C0056B9B7 /* EditLocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditLocationDetailView.swift; sourceTree = "<group>"; };
 		B076E6822512406A00C0373C /* LocationizerPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationizerPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B076E6852512406A00C0373C /* LocationizerPlusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationizerPlusApp.swift; sourceTree = "<group>"; };
-		B076E6872512406A00C0373C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B076E6892512406B00C0373C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B076E68C2512406B00C0373C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B076E68E2512406B00C0373C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				B076E6962512409F00C0373C /* Data Access */,
 				B076E697251240A600C0373C /* Logic */,
 				B076E6A9251241EE00C0373C /* User Interface */,
-				B076E6872512406A00C0373C /* ContentView.swift */,
 				B076E6892512406B00C0373C /* Assets.xcassets */,
 				B076E68E2512406B00C0373C /* Info.plist */,
 				B076E68B2512406B00C0373C /* Preview Content */,
@@ -380,7 +377,6 @@
 				B074226325126DB50056B9B7 /* SearchView.swift in Sources */,
 				B074226B251271A20056B9B7 /* CreateLocationView.swift in Sources */,
 				B0742257251265560056B9B7 /* DataObservable.swift in Sources */,
-				B076E6882512406A00C0373C /* ContentView.swift in Sources */,
 				B076E6D025124F7400C0373C /* LocationListView.swift in Sources */,
 				B0354195251259BD0064B033 /* RealmConvertible.swift in Sources */,
 				B0742254251262E50056B9B7 /* StringIdentifiable.swift in Sources */,
